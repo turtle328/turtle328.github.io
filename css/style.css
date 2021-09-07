@@ -1,0 +1,382 @@
+/* Load fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300|Source+Sans+Pro:200,400,600');
+/* Variables */
+
+:root {
+  /*
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  */
+  /* Override Variables */
+  --gray: #7d7d7d;
+  --gray-dark: #404040;
+  --font-family-sans-serif: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-serif: 'Merriweather', 'Times New Roman', serif;
+  /* Page Variables */
+  --font-weight-light: 200 !important;
+  --color-medium: #ddd;
+  --color-reverse: var(--gray-dark);
+  --color-text: var(--gray-dark);
+  --color-text-reverse: var(--light);
+  --font-family-title: var(--font-family-sans-serif);
+  --font-family-text: var(--font-family-serif);
+}
+
+body {
+  font-family: var(--font-family-text);
+  color: var(--color-text);
+  font-weight: 200;
+}
+
+/* Override Styles */
+
+.bg-medium {
+  background-color: var(--medium) !important;
+}
+
+/* Custom Styles */
+
+.animated {
+  visibility: visible !important;
+}
+
+.bg-reverse {
+  background-color: var(--color-reverse) !important;
+}
+
+.text-reverse {
+  color: var(--color-text-reverse) !important;
+}
+
+.family-sans {
+  font-family: var(--font-family-sans-serif);
+}
+
+.family-serif {
+  font-family: var(--font-family-serif);
+}
+
+.vertical-padding {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.icon {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  width: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+  text-rendering: auto;
+  fill: #B8D8BA !important;
+  width: 50px;
+  height: 50px;
+}
+
+.page-section-title {
+  font-size: 4em;
+  font-family: var(--font-family-title);
+  color: #69585F;
+  line-height: 100%;
+  padding-bottom: 0.15em;
+  margin-top: -0.2em;
+}
+
+.page-section-text {
+  margin-bottom: 2em !important;
+  color: #69585F;
+}
+
+.layout-title {
+  font-family: var(--font-family-title);
+  font-weight: 400;
+  font-size: 1.7em;
+}
+
+.layout-text {
+  font-family: var(--font-family-text);
+}
+
+/* Page Layouts */
+
+/* Site Header */
+
+.site-header {
+  background-image: linear-gradient(#ffafbd, #ffc3a0);
+}
+
+.site-header .page-section-title {
+  font-size: 3em;
+}
+
+.layout-about .page-section-text {
+  font-family: var(--font-family-sans-serif);
+  font-weight: 400;
+  font-size: 1.4em;
+}
+
+.layout-about .layout-image {
+  border: 10px inset #B8D8BA;
+  width: 300px;
+}
+
+.layout-about svg {
+  color: #394053;
+  transition: all 0.4s;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.layout-about svg:hover {
+  color: #a4abc0;
+  filter: drop-shadow(0 0 5px black);
+}
+
+@media screen and (max-width: 768px) {
+  .site-header .navbar-collapse {
+    padding: 10px;
+    transition: all 0.5s ease-out;
+  }
+}
+
+.site-nav {
+  background: rgba(56, 56, 56, 0.9);
+}
+
+.site-nav .navbar-brand {
+  font-weight: 600;
+}
+
+.site-nav.inbody {
+  background: rgba(56, 56, 56, 0.9);
+}
+
+.site-header .jumbotron {
+  min-height: 50vh;
+  background: transparent;
+}
+
+.site-header .animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.site-header .nav-link {
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 2px;
+}
+
+.site-header .nav-link:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  max-width: 100px;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--light);
+  visibility: hidden;
+  transform: scaleX(0);
+  transform-origin: center left;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.site-header .nav-link:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Layout projects */
+
+.layout-projects .photo-modal {
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  height: 500px;
+}
+
+.layout-projects .photo-modal:hover {
+  transform: scale(1.05) translateY(-3px);
+}
+
+.layout-projects .layout-title {
+  font-size: 1.1em;
+}
+
+.layout-projects .layout-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#page-projects {
+  background-image: linear-gradient(#2193b0, #6dd5ed);
+}
+
+/* Layout contact */
+
+.contact label .required {
+  color: var(--orange);
+  font-size: 12px;
+  line-height: 16px;
+  vertical-align: top
+}
+
+.contact textarea {
+  vertical-align: top;
+}
+
+#page-contact {
+  background-image: linear-gradient(#cc2b5e, #753a88);
+}
+
+.contact form {
+  animation-duration: 2s;
+  transition: all 2s;
+  transform-origin: center top;
+}
+
+#success {
+  opacity: 0;
+  animation-duration: 4s;
+  text-align: center;
+}
+
+.contact-info .contact-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info .address {
+  font-size: 20px;
+  font-family: var(--font-family-sans-serif);
+  color: #ddd;
+}
+/* modal stuff */
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.modal-body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-body .info {
+  padding: 25px 35px;
+  padding-bottom: 5px;
+}
+
+.modal-body .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+}
+
+.content .content-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-overlay {
+  opacity: 1;
+}
+
+.content:hover .content-details {
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3 {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.fadeIn-bottom {
+  top: 80%;
+}
+
+.modal-footer {
+  background-color: black;
+  cursor: pointer;
+}
+
+.modal-footer #close {
+  margin: 5px 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  transition: color 0.5s;
+}
+
+.modal-footer:hover #close {
+  color: red;
+}

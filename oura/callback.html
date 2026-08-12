@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oura Authorization Complete</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; }
+    code { display: block; word-break: break-all; padding: 1rem; background: #f4f4f4; border-radius: .5rem; }
+    .error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Oura authorization</h1>
+  <div id="content">Checking authorization response…</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const error = params.get('error');
+    const errorDescription = params.get('error_description');
+    const content = document.getElementById('content');
+
+    if (code) {
+      content.innerHTML = `
+        <p>Authorization succeeded.</p>
+        <p>Copy the authorization code below and paste it into the local Oura setup script on your PC. This code is short-lived and can only be used once.</p>
+        <code>${code.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</code>
+        <p>You can close this tab after the script accepts the code.</p>`;
+    } else if (error) {
+      content.innerHTML = `<p class="error">Authorization failed: ${error}${errorDescription ? ' — ' + errorDescription : ''}</p>`;
+    } else {
+      content.innerHTML = '<p>No authorization code was found in the URL.</p>';
+    }
+  </script>
+</body>
+</html>
